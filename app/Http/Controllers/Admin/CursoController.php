@@ -12,5 +12,23 @@ class CursoController extends Controller
     public function index(){ 
         $rows = Curso::all();
         return view('admin.cursos.index', compact('rows')); 
+    } 
+
+    public function adicionar() {
+        return view('admin.cursos.adicionar');
+    }
+    public function editar($id) {
+
+        $linha = Curso::find($id);
+        return view('admin.cursos.editar',compact('linha'));
+    // manda o registro encontrado para ser editado na visão
+    }
+    public function excluir($id) {
+        
+    Curso::find($id)->delete();
+    // apos selecionar o registro, é chamado o
+    // método DELETE do OBJETO registro
+    return redirect()->route('admin.cursos');
+    // abre a visão da lista de cursos
     }
 }

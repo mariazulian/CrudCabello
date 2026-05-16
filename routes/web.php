@@ -29,3 +29,6 @@ Route::put('/admin/cursos/atualizar/{id}',
 Route::get('/admin/cursos/excluir/{id}',
 ['as' =>'admin.cursos.excluir',
 'uses'=>'App\Http\Controllers\Admin\CursoController@excluir']);
+
+Route::put('/admin/cursos/atualizar/{id}',['as'=>'admin.cursos.atualizar',
+'uses'=>'App\Http\Controllers\Admin\CursoController@atualizar']);
